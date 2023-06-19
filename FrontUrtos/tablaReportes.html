@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Tabla Reportes</title>
+</head>
+<body style="display: flex; justify-content:center; align-items: center; height: 100vh; flex-direction:column;">
+    <a href="#" data-toggle="modal" data-target="#myModalC">Crear Reporte</a>
+    <div class="container">
+    <table style="border: 1px solid;" class="table table-striped">
+        <thead>
+            <td>Direccion</td>
+            <td>Altitud</td>
+            <td>Longitud</td>
+            <td>Fecha de reporte</td>
+            <td>Descripcion de reporte</td>
+            <td>Acciones</td>
+        </thead>
+        <tbody id="contenido"></tbody>
+    </table>
+    
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modalLabel">Editar Registro</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <!-- Formulario -->
+                  <form id="editForm">
+                    <div class="form-group">
+                      <label for="nombre">Direccion</label>
+                      <input id="_id" type="hidden" class="validate" >
+                      <input type="text" class="form-control" id="direccionE" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Latitud</label>
+                        <input type="text" class="form-control" id="latitudE" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="nombre">Longitud</label>
+                        <input type="text" class="form-control" id="longitudE" required>
+                      </div>
+                    <div class="form-group">
+                      <label for="apellido">Descripcion</label>
+                      <input type="text" class="form-control" id="descripcionE" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="actualizarReporte">Actualizar</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="myModalC" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modalLabel">Crear Registro</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <!-- Formulario -->
+                  <form id="createForm">
+                    <div class="form-group">
+                      <label for="direccion">Direccion</label>
+                      <input id="_id" type="hidden" class="validate" >
+                      <input type="text" class="form-control" id="direccionC" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="latitud">Latitud</label>
+                        <input type="text" class="form-control" id="latitudC" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="longitud">Longitud</label>
+                        <input type="text" class="form-control" id="longitudC" required>
+                      </div>
+                    <div class="form-group">
+                      <label for="descripcion">Descripcion</label>
+                      <input type="text" class="form-control" id="descripcionC" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="crearReporte">Crear</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+    <script src="./funcionesjs/crearReporte.js"></script>
+    <script src="./funcionesjs/eliminarReporte.js"></script>
+    <script src="./funcionesjs/listarReporte.js"></script>
+    <script src="./funcionesjs/actualizarReporte.js"></script>
+    <script src="./funcionesjs/"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+    <script>
+        $("#editForm").submit(function(event) {
+            event.preventDefault();
+            $("#myModal").modal("hide");
+            alert("Actualización exitosa");
+        });
+    </script>
+    <script>
+        $("#createForm").submit(function(event) {
+          event.preventDefault();
+          $("#myModalC").modal("hide");
+          alert("Creacion exitosa");
+        });
+      </script>
+
+    </body>
+</html>
